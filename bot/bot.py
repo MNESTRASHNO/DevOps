@@ -53,7 +53,7 @@ def getEmails(update: Update, context):
     cur = conn.cursor() # создаем курсор
     
     # Выполнение SQL-запроса
-    cur.execute("SELECT * FROM mail;")
+    cur.execute("SELECT * FROM email;")
 
     # Получение всех результатов запроса
     rows = cur.fetchall()
@@ -110,7 +110,7 @@ def savePhoneCommand(update: Update, context):
             cur = conn.cursor()
 
             for phone_number in found_list:
-                cur.execute("INSERT INTO phone (phone) VALUES (%s)", (phone_number,))
+                cur.execute("INSERT INTO phone (phone_number) VALUES (%s)", (phone_number,))
 
             conn.commit()
 
@@ -316,7 +316,14 @@ def helpCommand(update: Update, context):
         Команда: /get_apt_list
     13. Сбор информации о запущенных сервисах. 
         Команда: /get_services
-    14/
+    14. Найти номер среди текста
+        Команда: /find_phone_number
+    15. Вывести все номера, которые есть в базе.
+        Команда: /get_phone_numbers
+    16. Найти эмейл среди текста.
+        Команда: /find_email
+    17. Вывести все эмейлы из бд.
+        Команда: /get_emails
             """
     update.message.reply_text(commands_list)
 

@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS email (
     email VARCHAR(100)
 );
 
-INSERT INTO mail (email) VALUES ('test1@example.com');
+INSERT INTO email (email) VALUES ('test1@example.com');
 
-CREATE USER repl_user REPLICATION LOGIN PASSWORD '12345';
+CREATE USER repl_user REPLICATION LOGIN PASSWORD 'Qq12345';
 
 
