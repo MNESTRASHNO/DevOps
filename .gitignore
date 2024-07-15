@@ -1,6 +1,6 @@
-login.py/
-test.py/
-7.py/
-app.log/
-logfile.txt/
-.vscode/
+.env
+app.log
+1
+login.py
+test.py
+7.py
