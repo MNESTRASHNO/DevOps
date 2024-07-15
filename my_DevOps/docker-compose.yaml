@@ -1,0 +1,69 @@
+version: '3'
+services:
+  bot:
+    build: ./bot
+    container_name: bot
+    image: bot_image
+    environment:
+      TOKEN: ${TOKEN}
+      RM_HOST: ${RM_HOST}
+      RM_PORT: ${RM_PORT}
+      RM_USER: ${RM_USER}
+      RM_PASSWORD: ${RM_PASSWORD}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+    volumes:
+      - ./pg_logs:/var/log/postgresql
+    networks:
+      mynetwork:
+        ipv4_address: 10.0.0.2
+
+  db:
+    build:
+      context: ./db
+    image: db_image
+    container_name: db
+    environment:
+        POSTGRES_USER: ${DB_USER}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
+        POSTGRES_DB: ${DB_DATABASE}
+        DB_PORT: ${DB_PORT}
+        DB_REPL_USER: ${DB_REPL_USER}
+        DB_REPL_PASSWORD: ${DB_REPL_PASSWORD}
+        DB_REPL_HOST: ${DB_REPL_HOST}       
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./pg_logs:/var/log/postgresql    
+    ports:
+      - "${DB_PORT}:5432"
+    networks:
+      mynetwork:
+        ipv4_address: 10.0.0.3
+    
+  db_repl:
+    image: db_repl_image
+    build: ./db_repl
+    container_name: db_repl
+    environment:
+      DB_REPL_PORT: ${DB_REPL_PORT}
+      DB_PORT: ${DB_PORT}
+      DB_HOST: ${DB_HOST}
+      PGUSER: ${DB_REPL_USER}
+      PGPASSWORD: ${DB_REPL_PASSWORD}
+    ports:
+      - "${DB_REPL_PORT}:5432"
+    networks:
+      mynetwork:
+        ipv4_address: 10.0.0.4
+    depends_on:
+      - db
+
+networks:
+  mynetwork:
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.0.0.0/16"

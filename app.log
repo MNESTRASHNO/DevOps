@@ -1,0 +1,21 @@
+2024-05-14 14:59:42,899 - root - INFO - Команда успешно выполнена
+2024-05-14 14:59:54,572 - root - INFO - Команда успешно выполнена
+2024-05-14 15:02:42,418 - root - INFO - Команда успешно выполнена
+2024-05-14 15:03:24,432 - root - INFO - Команда успешно выполнена
+2024-05-14 15:03:24,432 - root - INFO - Соединение с PostgreSQL закрыто
+2024-05-16 20:50:47,700 - root - ERROR - Ошибка при работе с PostgreSQL: connection to server at "172.16.184.141", port 5432 failed: No route to host
+	Is the server running on that host and accepting TCP/IP connections?
+
+2024-05-16 21:08:23,958 - root - ERROR - Ошибка при работе с PostgreSQL: connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", SSL encryption
+connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", no encryption
+
+2024-05-16 21:11:43,318 - root - ERROR - Ошибка при работе с PostgreSQL: connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", SSL encryption
+connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", no encryption
+
+2024-05-16 21:15:54,500 - root - ERROR - Ошибка при работе с PostgreSQL: connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", SSL encryption
+connection to server at "172.16.184.148", port 5432 failed: FATAL:  no pg_hba.conf entry for host "172.16.184.1", user "postgres", database "db_ptstart", no encryption
+
+2024-05-16 21:23:27,242 - root - ERROR - Ошибка при работе с PostgreSQL: relation "users" does not exist
+LINE 1: SELECT * FROM users;
+                      ^
+
