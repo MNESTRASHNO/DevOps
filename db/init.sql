@@ -1,19 +1,16 @@
--- Создание таблицы "phone"
 CREATE TABLE IF NOT EXISTS phone (
     id SERIAL PRIMARY KEY,
     phone_number VARCHAR(20)
 );
 
--- Вставка данных в таблицу "phone"
-INSERT INTO phone (phone_number) VALUES ('81234567890');
+INSERT INTO phone (phone_number) VALUES ('71231231212');
 
--- Создание таблицы email"
 CREATE TABLE IF NOT EXISTS email (
     id SERIAL PRIMARY KEY,
     email VARCHAR(100)
 );
 
-INSERT INTO email (email) VALUES ('test1@example.com');
+INSERT INTO email (email) VALUES ('123@123.ru');
 
 CREATE USER repl_user REPLICATION LOGIN PASSWORD 'Qq12345';
 
