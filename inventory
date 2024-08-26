@@ -1,0 +1,5 @@
+[bot_postgres_master]
+192.168.31.216 ansible_user= ansible_password=
+
+[postgres_replica]
+192.168.31.170 ansible_user= ansible_password=

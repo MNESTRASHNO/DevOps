@@ -1,0 +1,18 @@
+CREATE DATABASE mydatabase;
+
+CREATE USER repluser WITH REPLICATION ENCRYPTED PASSWORD 'replpassword';
+
+\connect mydatabase;
+
+CREATE TABLE IF NOT EXISTS emails(
+id SERIAL PRIMARY KEY,
+email VARCHAR (255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS numbers(
+ID SERIAL PRIMARY KEY,
+number VARCHAR (50) NOT NULL
+);
+
+INSERT INTO emails (email) VALUES ('123@123.com'), ('123@123.ru');
+INSERT INTO numbers (number) VALUES ('+7 (123) 123-13-13');
